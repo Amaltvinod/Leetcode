@@ -1,2 +1,2 @@
 # Leetcode
-all my leetcode solutions in one place
+Leetcode solution - solved by Amal-T-Vinod

@@ -4,15 +4,13 @@ class Solution {
         HashMap<String,Integer>map=new HashMap<>();
         for(String s:cpdomains){
             String []subdomain=s.split(" ");
-            
-            for(int i=0;i<subdomain[1].length();i++){
-                 int cnt=Integer.parseInt(subdomain[0]);
-                if(subdomain[1].charAt(i)=='.'){
-                    String curDomain=subdomain[1].substring(i+1,subdomain[1].length());
-                    map.put(curDomain,map.getOrDefault(curDomain,0)+cnt);
-                }else if(i==0){
-                    map.put(subdomain[1],map.getOrDefault(subdomain[1],0)+cnt);
-                }
+            String []domain=subdomain[1].split("\\.");
+            String cur="";
+            int cnt=Integer.parseInt(subdomain[0]);
+            for(int i=domain.length-1;i>=0;i--){
+                cur=domain[i]+cur;
+                map.put(cur,map.getOrDefault(cur,0)+cnt);
+                cur="."+cur;
             }
         }
 

@@ -1,9 +1,19 @@
 class Solution {
 public:
     int maxProduct(int n) {
-        string temp=to_string(n);
-        sort(temp.begin(),temp.end());
-        return (temp[temp.size()-1]-'0')*(temp[temp.size()-2]-'0');
+        string num=to_string(n);
+        int l=0,r=num.size();
+        int prd=0;
+        while(l<r){
+            int ch1=num[l]-'0';
+            int ch2=num[r]-'0';
+            prd=max(prd,ch1*ch2);
+            if(num[l]>num[r])r--;
+            else l++;
+        
+
+        }
+        return prd;
         
     }
 };

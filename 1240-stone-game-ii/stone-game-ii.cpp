@@ -9,7 +9,7 @@ public:
         unordered_map<int, int> memo;
 
         auto dfs = [&](this auto&& dfs, int i, int m) -> int {
-            int key = i * 101 + m;
+            int key = i<<8| m;
 
             if (memo.count(key))
                 return memo[key];
